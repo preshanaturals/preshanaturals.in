@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Presha Naturals</title>
+    <style>
+        h4{*;color: #242c27; text-align: center;}
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .discount {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e53935;
+            color: white;
+            padding: 4px 6px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .mrp {
+            font-size: 12px;
+            color: #777;
+            text-decoration: line-through;
+            margin-left: 6px;
+        }
+
+        .delivery {
+            font-size: 12px;
+            color: #555;
+            margin: 6px 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 8px;
+            background: #65e055;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5ee859;
+        }
+        .bg {
+            background-image: url("images/bg.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .center-img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .left-space {
+            flex: 1;
+        }
+
+        .logo {
+            flex: 1;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 170px;
+        }
+
+        .contact-info {
+            flex: 1;
+            text-align: right;
+            font-size: 16.5px;
+            color: #2e2e2e;
+        }
+
+        .contact-info p {
+            margin: 4px 0;
+        }
+        .phone {
+            font-weight: 600;
+            color: #212e21;
+        }
+
+        .email {
+            color: #212e21; /* soft natural green */
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="bg">
+<div class="top-bar">
+    <!-- Empty space (left) -->
+    <div class="left-space"></div>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="images/logo.png" alt="Presha Naturals Logo">
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+    <p class="phone">📞 +91 76007 09467</p>
+    <p class="email">✉️ preshanaturals@gmail.com</p>
+</div>
+
+</div>
+
+
+<h4><b>Presha Naturals brings you thoughtfully crafted natural products made with pure, high-quality ingredients inspired by nature. 
+</b></h4>
+<h4><b>We believe in gentle, effective care that supports a healthier lifestyle while staying true to sustainability and authenticity. </b></h4>
+<h4><b>Experience the simplicity and goodness of natural living with Presha Naturals.</b></h4>
+<br></br>
+
+<div class="container">
+
+    <!--1 Product Card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/magnet.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+
+        <div class="title">Solid Perfume Magnet</div>
+        <div>
+            <span class="price">₹249</span>
+            
+        </div>
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--2 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/millennium.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Solid Perfume Millennium</div>
+        <div>
+            <span class="price">₹249</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--3 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/purple royale.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Solid Perfume Purple Royale</div>
+        <div>
+            <span class="price">₹249</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--4 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/white aura.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Solid Perfume White Aura</div>
+        <div>
+            <span class="price">₹249</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--5 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/Beet Glow lip Balm.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Beet Glow lip Balm</div>
+        <div>
+            <span class="price">₹299</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--6 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/coffe vanilla Lip Balm.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Coffe Vanilla Lip Balm</div>
+        <div>
+            <span class="price">₹299</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--7 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/Dry Body Scrub.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Dry Body Scrub</div>
+        <div>
+            <span class="price">₹349</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--8 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/Multani Mitti Powder.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Multani Mitti Powder</div>
+        <div>
+            <span class="price">₹349</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--9 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/Rose Blush Lip Balm.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Rose Blush Lip Balm</div>
+        <div>
+            <span class="price">₹299</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+
+    <!--10 Duplicate card -->
+    <div class="card">
+        
+        <a href="index1.html"><img src="images/Strawberry Essence Lip Balm.jpeg" style="width: 200px; height: 200px; object-fit: contain;"></a>
+        <div class="title">Strawberry Essence Lip Balm</div>
+        <div>
+            <span class="price">₹299</span>
+            
+        </div>
+        
+        <button class="btn"><a class="ast-custom-button-link" href="http://wa.me/+917600709467" target="_self"><div class="ast-custom-button">Buy Now</div></a></button>
+    </div>
+    <>
+
+
+</div>
+</div>
+</body>
+</html>
