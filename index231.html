@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Presha Naturals</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f6f6f6;
+}
+
+/* LOGO */
+.header {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.600);
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left, contact right */
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.600); 
+    backdrop-filter: blur(5px); /* Optional: gives a modern frosted glass look */
+}
+
+.header img {
+    max-width: 140px; /* Desktop Size */
+    height: auto;
+}
+
+/* PRODUCT GRID */
+.products {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* SLIDER FIX */
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider input {
+  display: none;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+}
+
+/* WHITE AURA CONTROLS */
+#whiteaura1:checked ~ .slides { transform: translateX(0); }
+#whiteaura2:checked ~ .slides { transform: translateX(-100%); }
+#whiteaura3:checked ~ .slides { transform: translateX(-200%); }
+
+/* DOTS */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.dots label {
+  width: 7px;
+  height: 7px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#whiteaura1:checked ~ .dots label:nth-child(1),
+#whiteaura2:checked ~ .dots label:nth-child(2),
+#whiteaura3:checked ~ .dots label:nth-child(3) {
+  background: #f04a2a;
+}
+
+
+/* PRODUCT CARD */
+.card {
+  
+  border-radius: 18px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+}
+
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* GLOBAL BACKGROUND */
+body {
+  background-image: url("images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+
+/* TAGS */
+.tags {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.tag.red { background: #f04a2a; }
+.tag.black { background: #111; }
+
+/* IMAGE */
+.product-image {
+    width: 100%;
+    height: 260px;           /* FIXED HEIGHT */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.product-image img {
+    width: 100%;             /* REQUIRED */
+    height: 260px;           /* REQUIRED */
+    transition: transform 0.5s ease;
+    object-fit: contain;     /* PREVENT CROPPING */
+}
+
+.card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+/* BUY BUTTON */
+.buy-btn {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0 20px;
+    flex-wrap: wrap;
+}
+
+.category-tabs a {
+    padding: 12px 22px;
+    border-radius: 30px;
+    border: 2px solid #f04a2a;
+    color: #f04a2a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.category-tabs a:hover,
+.category-tabs a.active {
+    background: #f04a2a;
+    color: #fff;
+}
+
+.buy-btn a {
+    display: block;
+    padding: 14px;
+    border-radius: 30px;
+    border: 2px solid #f04a2a;
+    color: #f04a2a;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buy-btn a:hover {
+    background: #f04a2a;
+    color: #fff;
+}
+
+/* INFO */
+.info h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.price {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f04a2a;
+}
+
+.old-price {
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: line-through;
+    margin-left: 6px;
+}
+
+/* CONTACT BAR */
+.contact-bar {
+    /* Changed background to transparent black */
+    background: rgba(0, 0, 0, 0.600);
+    padding: 8px 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Removed solid border to keep it clean, or use a faint one */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: right;
+    font-family: sans-serif;
+    
+    /* Text color needs to be lighter to be visible on dark tint */
+    color: #ffffff;
+    flex: 1;
+    font-size: 16.5px;
+}
+
+.contact-bar a {
+    text-decoration: none;
+    /* Brightened the red slightly for better contrast on dark bg */
+    color: #FFD700; 
+    margin: 4px 0;
+    font-weight: bold;
+}
+
+@media (max-width: 400px) {
+
+  body {
+    background-image: url("images/bg-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    
+
+
+  }
+
+  
+  .contact-bar a {
+    text-align: right;
+  }
+
+    .header img {
+        max-width: 80px; /* Desktop Size */
+        align-items: left;
+        height: auto;
+    }
+
+
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+  }
+
+  .contact-bar {
+    font-size: small;
+    padding: 1px 5px;
+    align-items: right;
+    text-align: right;
+  }
+
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 20px;
+    flex-wrap: wrap;
+ }
+
+  .category-tabs a {
+    padding: 4px 6px;
+    border-radius: 30px;
+    border: 2px solid #f04a2a;
+    color: #f04a2a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+ }
+
+
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .site-header img {
+    width: 120px;
+    height: auto;
+  }
+
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin : auto;
+    
+  }
+
+  .product-image img {
+    width: 120%;
+    border-radius: 12px;
+    height: 100px;
+    align-items: center;
+    object-fit: contain;
+  }
+
+  .info {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .info h3 {
+    
+    line-height: 1.3;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .price {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .old-price {
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 6px;
+  }
+
+  .site-header {
+        padding: 4px 10px;
+    }
+
+    .logo-area img {
+        max-width: 100px; /* Smaller logo for mobile */
+    }
+
+    .contact-info {
+        flex-direction: column; /* Stacks phone and email */
+        gap: 1px;
+        align-items: right;
+        font-size: 11px;
+        text-align: right;
+    }
+
+  
+
+  .buy-btn a {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+
+
+<!-- LOGO -->
+<div class="header">
+    <img src="images/logo.png" alt="Brand Logo">
+</div>
+
+<div class="contact-bar">
+    <span>📞 <a href="tel:+919824273961">+91 98242 73961</a></span>
+    <span>✉️ <a href="mailto:contact@presha.com">preshanaturals@gmail.com</a></span>
+</div>
+
+<div class="category-tabs">
+    <a href="#all" class="active">All</a>
+    <a href="#solid-perfume">Solid Perfume</a>
+    <a href="#body-scrub">Body Scrub</a>
+    <a href="#lip-balm">Lip Balm</a>
+</div>
+<section id="all">
+    <section id="solid-perfume">
+            <!-- PRODUCTS -->
+            <div class="products">
+
+                <!-- PRODUCT 1 -->
+                <div class="card">
+
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image slider">
+
+                    <input type="radio" name="whiteaura" id="whiteaura1" checked>
+                    <input type="radio" name="whiteaura" id="whiteaura2">
+                    <input type="radio" name="whiteaura" id="whiteaura3">
+
+                    <div class="slides">
+                        <img src="images/white aura.jpeg">
+                        <img src="images/millennium.jpeg">
+                        <img src="images/purple royale.jpeg">
+                    </div>
+
+                    <div class="dots">
+                        <label for="whiteaura1"></label>
+                        <label for="whiteaura2"></label>
+                        <label for="whiteaura3"></label>
+                    </div>
+
+                    </div>
+
+
+                    <div class="info">
+                        <h3>Magnet | Solid Perfume</h3>
+                        <p></p>
+                        <div class="price">
+                            Rs. 249 <span class="old-price">Rs. 799</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Solid Perfume Magnet">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+                <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/purple royale.jpeg" alt="Purple Royale Solid Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Purple Royale | Solid Perfume</h3>
+                        <p></p>
+                        <div class="price">
+                            Rs. 249 <span class="old-price">Rs. 799</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Solid Perfume Purple Royale">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+                <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/millennium.jpeg" alt="Ispahan Solid Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Millennium | Solid Perfume</h3>
+                        <p></p>
+                        <div class="price">
+                            Rs. 249 <span class="old-price">Rs. 799</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Solid Perfume Millennium">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <!-- PRODUCT 4 -->
+                <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/white aura.jpeg" alt="Ispahan Solid Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>White Aura | Solid Perfume</h3>
+                        <p></p>
+                        <div class="price">
+                            Rs. 249 <span class="old-price">Rs. 799</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Solid Perfume White Aura">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+    </section>
+
+    <section id="body-scrub">
+
+
+        <!-- PRODUCT 1 -->
+        <div class="products">
+
+            <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+                <div class="product-image">
+                    <img src="images/Dry Body Scrub.jpeg" alt="Coffee Body Scrub">
+                </div>
+
+                <div class="info">
+                    <h3>Dry Body Scrub</h3>
+                    <div class="price">
+                        Rs. 349 <span class="old-price">Rs. 599</span>
+                    </div>
+                </div>
+
+                <div class="buy-btn">
+                    <a href="https://wa.me/+919824273961?text=Hi, I want to buy Dry Body Scrub">
+                        BUY NOW
+                    </a>
+                </div>
+            </div>
+
+        
+
+        <!-- PRODUCT 2 -->
+        
+
+            <div class="card">
+                <div class="tags">
+                    <span class="tag red">Winter/Summer</span>
+                    <span class="tag black">Unisex</span>
+                </div>            
+                <div class="product-image">
+                    <img src="images/Multani Mitti Powder.jpeg" alt="Coffee Body Scrub">
+                </div>
+
+                <div class="info">
+                    <h3>Multani Mitti Powder</h3>
+                    <div class="price">
+                        Rs. 349 <span class="old-price">Rs. 599</span>
+                    </div>
+                </div>
+
+                <div class="buy-btn">
+                    <a href="https://wa.me/+919824273961?text=Hi, I want to buy Multani Mitti Powder">
+                        BUY NOW
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <section id="lip-balm">
+
+        <!-- PRODUCT 1 -->
+        <div class="products">
+            
+            <div class="card">
+                <div class="tags">
+                    <span class="tag red">Winter/Monsoon</span>
+                    <span class="tag black">Unisex</span>
+                </div>
+
+                <div class="product-image">
+                    <img src="images/Rose Blush Lip Balm.jpeg" alt="Rose Lip Balm">
+                </div>
+
+                <div class="info">
+                    <h3>Rose Blush Lip Balm</h3>
+                    <div class="price">
+                        Rs. 299 <span class="old-price">Rs. 399</span>
+                    </div>
+                </div>
+
+                <div class="buy-btn">
+                    <a href="https://wa.me/+919824273961?text=Hi, I want to buy Rose Blush Lip Balm">
+                        BUY NOW
+                    </a>
+                </div>
+            </div>
+
+        
+
+        <!-- PRODUCT 2 -->
+        
+
+            <div class="card">
+                <div class="tags">
+                    <span class="tag red">Winter/Monsoon</span>
+                    <span class="tag black">Unisex</span>
+                </div>
+
+                <div class="product-image">
+                    <img src="images/Beet Glow lip Balm.jpeg" alt="Rose Lip Balm">
+                </div>
+
+                <div class="info">
+                    <h3>Beet Glow lip Balm</h3>
+                    <div class="price">
+                        Rs. 299 <span class="old-price">Rs. 399</span>
+                    </div>
+                </div>
+
+                <div class="buy-btn">
+                    <a href="https://wa.me/+919824273961?text=Hi, I want to buy Beet Glow lip Balm">
+                        BUY NOW
+                    </a>
+                </div>
+            </div>
+
+        
+
+
+        <!-- PRODUCT 3 -->
+        
+
+            <div class="card">
+                <div class="tags">
+                    <span class="tag red">Winter/Monsoon</span>
+                    <span class="tag black">Unisex</span>
+                </div>
+
+                <div class="product-image">
+                    <img src="images/coffe vanilla Lip Balm.jpeg" alt="Rose Lip Balm">
+                </div>
+
+                <div class="info">
+                    <h3>Coffe Vanilla Lip Balm</h3>
+                    <div class="price">
+                        Rs. 299 <span class="old-price">Rs. 399</span>
+                    </div>
+                </div>
+
+                <div class="buy-btn">
+                    <a href="https://wa.me/+919824273961?text=Hi, I want to buy Coffe Vanilla Lip Balm">
+                        BUY NOW
+                    </a>
+                </div>
+            </div>
+
+        
+
+
+        <!-- PRODUCT 4 -->
+        
+
+            <div class="card">
+                <div class="tags">
+                    <span class="tag red">Winter/Monsoon</span>
+                    <span class="tag black">Unisex</span>
+                </div>
+
+                <div class="product-image">
+                    <img src="images/Strawberry Essence Lip Balm.jpeg" alt="Rose Lip Balm">
+                </div>
+
+                <div class="info">
+                    <h3>Strawberry Essence Lip Balm</h3>
+                    <div class="price">
+                        Rs. 299 <span class="old-price">Rs. 399</span>
+                    </div>
+                </div>
+
+                <div class="buy-btn">
+                    <a href="https://wa.me/+919824273961?text=Hi, I want to buy Strawberry Essence Lip Balm">
+                        BUY NOW
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </section>
+</section>
+
+</body>
+</html>
