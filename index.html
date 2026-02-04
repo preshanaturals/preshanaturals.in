@@ -51,13 +51,19 @@ body {
 /* PRODUCT CARD */
 .card {
   
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 16px;
+
+  /* GLASS EFFECT */
+  background: rgba(255, 255, 255, 0.25);   /* transparent white */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(4px);
 }
 
 
@@ -95,19 +101,20 @@ body {
 
 /* IMAGE */
 .product-image {
-    width: 100%;
-    height: 260px;           /* FIXED HEIGHT */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 .product-image img {
-    width: 100%;             /* REQUIRED */
-    height: 260px;           /* REQUIRED */
-    transition: transform 0.5s ease;
-    object-fit: contain;     /* PREVENT CROPPING */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .card:hover .img-container img {
@@ -187,6 +194,29 @@ body {
     margin-left: 6px;
 }
 
+.hero {
+  width: 100%;
+  text-align: center;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo {
+    align-items: left;
+    padding-left: 20px;
+
+}
+
+.logo img {
+    max-width: 140px; /* Desktop Size */
+    height: auto;
+}
+
+
 /* CONTACT BAR */
 .contact-bar {
     /* Changed background to transparent black */
@@ -213,6 +243,82 @@ body {
     color: #FFD700; 
     margin: 4px 0;
     font-weight: bold;
+}
+
+
+/* ===== POPUP OVERLAY ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);   /* 🔥 blur background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* Prevent scroll when popup open */
+body.popup-open {
+  overflow: hidden;
+}
+
+/* ===== POPUP BOX ===== */
+.popup-box {
+  position: relative;
+  width: 520px;
+  max-width: 95%;
+  border-radius: 18px;
+  overflow: hidden;
+  animation: fadeIn 0.35s ease;
+}
+
+/* Image */
+.popup-box img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Cancel button */
+.cancel-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .popup-box {
+    width: 92%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 10px;
+  }
+
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (max-width: 400px) {
@@ -290,15 +396,18 @@ body {
     height: 150px;
     flex-shrink: 0;
     margin : auto;
+    border-radius: 18px;
+
     
   }
 
   .product-image img {
     width: 150%;
-    border-radius: 12px;
+    border-radius: 18px;
     height: 150px;
     align-items: center;
     object-fit: contain;
+    
   }
 
   .info {
@@ -356,13 +465,42 @@ body {
 
 <body>
 
+<div id="popup" class="popup-overlay">
+  <div class="popup-box">
+
+    <button class="cancel-btn" onclick="closePopup()">✖</button>
+
+    <a href="https://wa.me/919824273961?text=Hi, I am interested in Presha Combo with Hand Written Letter" target="_blank">
+      <img src="images/pop-up.jpeg" alt="Offer">
+    </a>
+
+  </div>
+</div>
+
+<script>
+const popup = document.getElementById("popup");
+
+// open popup on page load
+window.onload = function () {
+    popup.style.display = "flex";
+    document.body.classList.add("popup-open"); // disable scroll
+};
+
+// close popup when ❌ clicked
+function closePopup() {
+    popup.style.display = "none";
+    document.body.classList.remove("popup-open");
+}
+</script>
+
+
+<div class="hero">
+  <img src="images/banner.png" alt="Presha Banner">
+
+</div>
 
 
 <!-- LOGO -->
-<div class="header">
-    <img src="images/logo.png" alt="Brand Logo">
-</div>
-
 <div class="contact-bar">
     <span>📞 <a href="tel:+919824273961">+91 98242 73961</a></span>
     <span>✉️ <a href="mailto:contact@presha.com">preshanaturals@gmail.com</a></span>
