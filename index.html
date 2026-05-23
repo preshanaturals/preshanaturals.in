@@ -4,474 +4,18 @@
 <meta charset="UTF-8">
 <title>Presha Naturals</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-* {
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    margin: 0;
-    background: #f6f6f6;
-}
-
-/* LOGO */
-.header {
-    text-align: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.600);
-    
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between; /* Pushes logo left, contact right */
-    align-items: center;
-    padding: 20px 5%;
-    background: rgba(0, 0, 0, 0.600); 
-    backdrop-filter: blur(5px); /* Optional: gives a modern frosted glass look */
-}
-
-.header img {
-    max-width: 140px; /* Desktop Size */
-    height: auto;
-}
-
-/* PRODUCT GRID */
-.products {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-/* PRODUCT CARD */
-.card {
-  
-  border-radius: 20px;
-  padding: 16px;
-
-  /* GLASS EFFECT */
-  background: rgba(255, 255, 255, 0.25);   /* transparent white */
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255,255,255,0.35);
-
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-
-  transition: all 0.3s ease;
-}
-
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-/* GLOBAL BACKGROUND */
-body {
-  background-image: url("images/bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
-}
-
-
-/* TAGS */
-.tags {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.tag {
-    font-size: 12px;
-    padding: 6px 12px;
-    border-radius: 20px;
-    color: #fff;
-}
-
-.tag.red { background: #f04a2a; }
-.tag.black { background: #111; }
-
-/* IMAGE */
-.product-image {
-  width: 100%;
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.card:hover .img-container img {
-    transform: scale(1.1);
-}
-
-/* BUY BUTTON */
-.buy-btn {
-    margin: 15px 0;
-    text-align: center;
-}
-
-.category-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 40px 0 20px;
-    flex-wrap: wrap;
-}
-
-.category-tabs a {
-    padding: 12px 22px;
-    border-radius: 30px;
-    border: 2px solid #f04a2a;
-    color: #f04a2a;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.category-tabs a:hover,
-.category-tabs a.active {
-    background: #f04a2a;
-    color: #fff;
-}
-
-.buy-btn a {
-    display: block;
-    padding: 14px;
-    border-radius: 30px;
-    border: 2px solid #f04a2a;
-    color: #f04a2a;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.buy-btn a:hover {
-    background: #f04a2a;
-    color: #fff;
-}
-
-/* INFO */
-.info h3 {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
-.info p {
-    margin: 4px 0;
-    font-size: 14px;
-    color: #666;
-}
-
-.price {
-    margin-top: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #f04a2a;
-}
-
-.old-price {
-    font-size: 14px;
-    color: #aaa;
-    text-decoration: line-through;
-    margin-left: 6px;
-}
-
-.hero {
-  width: 100%;
-  text-align: center;
-}
-
-.hero img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.logo {
-    align-items: left;
-    padding-left: 20px;
-
-}
-
-.logo img {
-    max-width: 140px; /* Desktop Size */
-    height: auto;
-}
-
-
-/* CONTACT BAR */
-.contact-bar {
-    /* Changed background to transparent black */
-    
-    background: rgba(0, 0, 0, 0.600);
-    padding: 8px 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    /* Removed solid border to keep it clean, or use a faint one */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: right;
-    font-family: sans-serif;
-    
-    /* Text color needs to be lighter to be visible on dark tint */
-    color: #ffffff;
-    flex: 1;
-    font-size: 16.5px;
-}
-
-.contact-bar a {
-    text-decoration: none;
-    /* Brightened the red slightly for better contrast on dark bg */
-    color: #FFD700; 
-    margin: 4px 0;
-    font-weight: bold;
-}
-
-
-/* ===== POPUP OVERLAY ===== */
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);   /* 🔥 blur background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-}
-
-/* Prevent scroll when popup open */
-body.popup-open {
-  overflow: hidden;
-}
-
-/* ===== POPUP BOX ===== */
-.popup-box {
-  position: relative;
-  width: 520px;
-  max-width: 95%;
-  border-radius: 18px;
-  overflow: hidden;
-  animation: fadeIn 0.35s ease;
-}
-
-/* Image */
-.popup-box img {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-  display: block;
-  border-radius: 18px;
-}
-
-/* Cancel button */
-.cancel-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
-  color: white;
-  border: none;
-  font-size: 16px;
-  padding: 6px 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(.8); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 768px) {
-  .popup-box {
-    width: 92%;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 10px;
-  }
-
-  .hero img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 400px) {
-
-  body {
-    background-image: url("images/bg-mobile.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-    
-
-
-  }
-
-  
-  .contact-bar a {
-    text-align: right;
-  }
-
-    .header img {
-        max-width: 90px; /* Desktop Size */
-        align-items: left;
-        height: auto;
-    }
-
-
-  .card-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-  }
-
-  .contact-bar {
-    font-size: small;
-    padding: 1px 5px;
-    align-items: right;
-    text-align: right;
-  }
-
-  .category-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0 20px;
-    flex-wrap: wrap;
- }
-
-  .category-tabs a {
-    padding: 4px 6px;
-    border-radius: 30px;
-    border: 2px solid #f04a2a;
-    color: #f04a2a;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
- }
-
-
-  .site-header {
-    padding: 12px 0;
-  }
-
-  .site-header img {
-    width: 120px;
-    height: auto;
-  }
-
-
-  .product-image {
-    width: 150px;
-    zoom: 120%;
-    height: 150px;
-    flex-shrink: 0;
-    margin : auto;
-    border-radius: 18px;
-
-    
-  }
-
-  .product-image img {
-    width: 150%;
-    border-radius: 18px;
-    height: 150px;
-    align-items: center;
-    object-fit: contain;
-    
-  }
-
-  .info {
-    flex-grow: 1;
-    text-align: center;
-  }
-
-  .info h3 {
-    
-    line-height: 1.3;
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-
-  .price {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .old-price {
-    color: #999;
-    text-decoration: line-through;
-    margin-left: 6px;
-  }
-
-  .site-header {
-        padding: 4px 10px;
-    }
-
-    .logo-area img {
-        max-width: 100px; /* Smaller logo for mobile */
-    }
-
-    .contact-info {
-        flex-direction: column; /* Stacks phone and email */
-        gap: 1px;
-        align-items: right;
-        font-size: 11px;
-        text-align: right;
-    }
-
-  
-
-  .buy-btn a {
-    padding: 10px;
-    font-size: 14px;
-  }
-}
-
-
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!--
+
 <div id="popup" class="popup-overlay">
   <div class="popup-box">
 
     <button class="cancel-btn" onclick="closePopup()">✖</button>
 
-    <a href="https://wa.me/919824273961?text=Hi, I am interested in Presha Combo with Hand Written Letter" target="_blank">
-      <img src="images/pop-up.jpeg" alt="Offer">
+    <a href="https://wa.me/919824273961?text=Hi, I am interested in Presha Products" target="_blank">
+      <img src="images/pop-up-box.png" alt="Offer">
     </a>
 
   </div>
@@ -480,22 +24,20 @@ body.popup-open {
 <script>
 const popup = document.getElementById("popup");
 
-// open popup on page load
 window.onload = function () {
     popup.style.display = "flex";
     document.body.classList.add("popup-open"); // disable scroll
 };
 
-// close popup when ❌ clicked
 function closePopup() {
     popup.style.display = "none";
     document.body.classList.remove("popup-open");
 }
 </script>
--->
+
 
 <div class="hero">
-  <img src="images/banner.png" alt="Presha Banner">
+  <img style="height: 750px;" src="images/banner-new.png" alt="Presha Banner">
 
 </div>
 
@@ -507,10 +49,11 @@ function closePopup() {
 </div>
 
 <div class="category-tabs">
-    <a href="#all" class="active">All</a>
-    <a href="#solid-perfume">Solid Perfume</a>
+    <a href="index.html" class="active">All</a>
+    <a href="solid_perfume.html">Solid Perfume</a>
     <a href="#combo2">2 Combo</a>
     <a href="#combo4">4 Combo</a>
+    <a href="#soap">Soap</a>
     <a href="#body-scrub">Body Scrub</a>
     <a href="#lip-balm">Lip Balm</a>
 </div>
@@ -656,7 +199,6 @@ function closePopup() {
                     </div>
                 </div>
 
-
                 
                 <!-- PRODUCT 6 -->
                 <div class="card">
@@ -684,7 +226,6 @@ function closePopup() {
                         </a>
                     </div>
                 </div>
-
 
                 
                 <!-- PRODUCT 7 -->
@@ -714,7 +255,6 @@ function closePopup() {
                     </div>
                 </div>
 
-
                 
                 <!-- PRODUCT 8 -->
                 <div class="card">
@@ -742,8 +282,6 @@ function closePopup() {
                         </a>
                     </div>
                 </div>
-
-
 
 
             </div>
@@ -928,6 +466,242 @@ function closePopup() {
                 </div>
             </div>
         </div>
+    </section>
+
+
+
+    <section id="soap">
+            <!-- PRODUCTS -->
+            <div class="products">
+
+                <!-- PRODUCT 1 -->
+                <div class="card">
+
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/ubtan-soap.jpeg" alt="Magent Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Ubtan Soap (Homemade)</h3>
+                        <p>Circular Soap</p>
+                        <div class="price">
+                            Rs. 199 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Ubtan Soap (Homemade) Circular Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+                <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/kesar-soap.png" alt="Purple Royale Solid Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Kesar Soap (Homemade)</h3>
+                        <p>Circular Soap</p>
+                        <div class="price">
+                            Rs. 149 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Kesar Soap (Homemade) Circular Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+                <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/lemon-soap.jpeg" alt="Ispahan Solid Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Lemon Soap (Homemade)</h3>
+                        <p>Circular Soap</p>
+                        <div class="price">
+                            Rs. 149 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Lemon Soap (Homemade) Circular Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <!-- PRODUCT 4 -->
+                <div class="card">
+                    <div class="tags">
+                        <span class="tag red">Winter</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/menthol-soap.jpeg" alt="Ispahan Solid Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Menthol Soap (Homemade)</h3>
+                        <p>Circular Soap</p>
+                        <div class="price">
+                            Rs. 149 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Menthol Soap (Homemade) Circular Soap : https://preshanaturals.in/images/lemon-soap.jpg">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+                
+                <!-- PRODUCT 5 -->
+                <div class="card">
+
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/Rose_cube Soap.jpeg" alt="Magent Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Rose Soap (Homemade)</h3>
+                        <p>Cuboid Soap</p>
+                        <div class="price">
+                            Rs. 99 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Rose Soap (Homemade) Cuboid Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                
+                <!-- PRODUCT 6 -->
+                <div class="card">
+
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/neem_cube-soap.jpeg" alt="Magent Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Neem Soap (Homemade)</h3>
+                        <p>Cuboid Soap</p>
+                        <div class="price">
+                           Rs. 99 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Neem Soap (Homemade) Cuboid Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                
+                <!-- PRODUCT 7 -->
+                <div class="card">
+
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/sandwood_cube-soap.jpeg" alt="Magent Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Sandalwood Soap (Homemade)</h3>
+                        <p>Cuboid Soap</p>
+                        <div class="price">
+                            Rs. 99 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Sandalwood Soap (Homemade) Cuboid Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+                
+                <!-- PRODUCT 8 -->
+                <div class="card">
+
+                    <div class="tags">
+                        <span class="tag red">Winter/Summer</span>
+                        <span class="tag black">Unisex</span>
+                    </div>
+
+                    <div class="product-image">
+                        <img src="images/kesar_cube-soap.jpeg" alt="Magent Perfume">
+                    </div>
+
+                    <div class="info">
+                        <h3>Presha Kesar Soap (Homemade)</h3>
+                        <p>Cuboid Soap</p>
+                        <div class="price">
+                            Rs. 99 <span class="old-price">Rs. 499</span>
+                        </div>
+                    </div>
+
+                    <div class="buy-btn">
+                        <a href="https://wa.me/+919824273961?text=Hi, I want to buy Presha Kesar Soap (Homemade) Cuboid Soap">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
     </section>
 
     
